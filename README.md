@@ -110,3 +110,4 @@ const remoteAPI = setup<RemoteAPI>(api, myEndpoint);
 
 - [ ] Disconnecting
 - [ ] Support callbacks
+- [ ] Transferables
