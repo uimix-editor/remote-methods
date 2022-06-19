@@ -15,9 +15,11 @@ It allows you to handle postMessage-based communication in more intuitive ways t
 - Supports any sort of message-based communication
   - iframes, web workers, Electron IPC, VS Code webviews, etc
 
-## Example (iframe)
+## Usage
 
-### Parent window
+### Example (iframe)
+
+#### Parent window
 
 ```ts
 import { setup, windowEndpoint, Remote } from "remote-methods";
@@ -42,7 +44,7 @@ console.log(await sandboxAPI.sandboxGreet("Main"));
 console.log(await sandboxAPI.sandboxGreetAsync("Main"));
 ```
 
-### Child window
+#### Child window
 
 ```ts
 import { setup, windowEndpoint, Remote } from "remote-methods";
@@ -65,7 +67,7 @@ console.log(await mainAPI.mainGreet("Sandbox"));
 console.log(await mainAPI.mainGreetAsync("Sandbox"));
 ```
 
-### Common type definitions
+#### Common type definitions
 
 ```ts
 export interface SandboxAPI {
