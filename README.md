@@ -101,3 +101,8 @@ const myEndpoint: Endpoint = {
 
 const remoteAPI = setup<RemoteAPI>(api, myEndpoint);
 ```
+
+## TODO
+
+- [ ] Disposing of the connection
+- [ ] Support callbacks
