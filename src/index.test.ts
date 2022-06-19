@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { setupMessageRPC, Endpoint } from "./index";
+import { setup, Endpoint } from "./index";
 
-describe(setupMessageRPC.name, () => {
+describe(setup.name, () => {
   it("should call method on handler", async () => {
     const methodsA = {
       async methodA(value: number) {
@@ -30,14 +30,14 @@ describe(setupMessageRPC.name, () => {
       postMessage(data: any) {},
     };
 
-    const a = setupMessageRPC<typeof methodsA>(methodsB, endpointB);
+    const a = setup<typeof methodsA>(methodsB, endpointB);
 
     let aReturn = "";
     void a.methodA(100).then((value) => (aReturn = value));
 
     await new Promise((resolve) => setTimeout(resolve, 10));
 
-    const b = setupMessageRPC<typeof methodsB>(methodsA, endpointA);
+    const b = setup<typeof methodsB>(methodsA, endpointA);
     let bReturn = "";
     void b.methodB(100).then((value) => (bReturn = value));
 

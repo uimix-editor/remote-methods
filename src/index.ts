@@ -39,7 +39,7 @@ export interface Endpoint {
   postMessage(data: any): void;
 }
 
-class MessageRPCPort {
+class Port {
   constructor(methods: object, endpoint: Endpoint) {
     this.methods = methods;
     this.endpoint = endpoint;
@@ -141,7 +141,7 @@ class MessageRPCPort {
 
   getRemoteProxy<TRemoteMethods>(): Remote<TRemoteMethods> {
     return new Proxy(this, {
-      get(target: MessageRPCPort, property: string): any {
+      get(target: Port, property: string): any {
         return async (...args: any[]) => {
           await target.waitForConnected();
           const callID = target.callID++;
@@ -162,9 +162,26 @@ class MessageRPCPort {
   }
 }
 
-export function setupMessageRPC<TRemoteMethods>(
+export function setup<TRemoteMethods>(
   methods: object,
   endpoint: Endpoint
 ): Remote<TRemoteMethods> {
-  return new MessageRPCPort(methods, endpoint).getRemoteProxy<TRemoteMethods>();
+  return new Port(methods, endpoint).getRemoteProxy<TRemoteMethods>();
+}
+
+export function windowEndpoint(targetWindow: Window): Endpoint {
+  return {
+    addEventListener(listener: (data: any) => void): () => void {
+      const cb = (event: MessageEvent) => {
+        listener(event.data);
+      };
+      window.addEventListener("message", cb);
+      return () => {
+        window.removeEventListener("message", cb);
+      };
+    },
+    postMessage(data: any): void {
+      targetWindow.postMessage(data);
+    },
+  };
 }
