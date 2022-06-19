@@ -1,0 +1,9 @@
+{
+  "name": "remote-methods",
+  "version": "1.0.0",
+  "description": "Call remote methods through message-based communication (for sandboxed iframes etc)",
+  "repository": "git@github.com:macaron-elements/remote-methods.git",
+  "license": "MIT",
+  "author": "Ryohei Ikegami <iofg2100@gmail.com>",
+  "main": "index.js"
+}
