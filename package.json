@@ -2,17 +2,18 @@
   "name": "remote-methods",
   "version": "1.0.0",
   "description": "Call remote methods through message-based communication (for sandboxed iframes etc)",
+  "homepage": "https://github.com/macaron-elements/remote-methods",
   "repository": "git@github.com:macaron-elements/remote-methods.git",
   "license": "MIT",
   "author": "Ryohei Ikegami <iofg2100@gmail.com>",
   "main": "index.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite dev",
+    "test": "vitest"
+  },
   "devDependencies": {
     "vite": "^2.9.12",
     "vitest": "^0.15.1"
-  },
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "test": "vitest"
   }
 }
