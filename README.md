@@ -104,5 +104,5 @@ const remoteAPI = setup<RemoteAPI>(api, myEndpoint);
 
 ## TODO
 
-- [ ] Disposing of the connection
+- [ ] Disconnecting
 - [ ] Support callbacks
