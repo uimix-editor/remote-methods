@@ -7,6 +7,9 @@
   "license": "MIT",
   "author": "Ryohei Ikegami <iofg2100@gmail.com>",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc",
     "dev": "vite dev",
