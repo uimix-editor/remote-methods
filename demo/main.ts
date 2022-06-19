@@ -5,10 +5,10 @@ const targetIframe = document.querySelector("iframe")!;
 
 const api: MainAPI = {
   mainGreet(name: string): string {
-    return `Main greet: Hello, ${name}`;
+    return `mainGreet: Hello, ${name}`;
   },
   async mainGreetAsync(name: string): Promise<string> {
-    return `Main greetAsync: Hello, ${name}`;
+    return `mainGreetAsync: Hello, ${name}`;
   },
 };
 
@@ -17,5 +17,5 @@ const sandboxAPI = setup<SandboxAPI>(
   windowEndpoint(targetIframe.contentWindow!)
 );
 
-console.log(await sandboxAPI.sandboxGreet("World"));
-console.log(await sandboxAPI.sandboxGreetAsync("World"));
+console.log(await sandboxAPI.sandboxGreet("Main"));
+console.log(await sandboxAPI.sandboxGreetAsync("Main"));
