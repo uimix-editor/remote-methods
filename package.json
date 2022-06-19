@@ -6,7 +6,15 @@
   "repository": "git@github.com:macaron-elements/remote-methods.git",
   "license": "MIT",
   "author": "Ryohei Ikegami <iofg2100@gmail.com>",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
