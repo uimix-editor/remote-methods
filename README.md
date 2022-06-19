@@ -1,5 +1,7 @@
 # remote-methods
 
+[![npm version](https://badge.fury.io/js/remote-methods.svg)](https://badge.fury.io/js/remote-methods)
+
 Call remote methods through message-based communication (for sandboxed iframes etc)
 
 It allows you to handle postMessage-based communication in more intuitive ways than using `window.postMessage` directly.
